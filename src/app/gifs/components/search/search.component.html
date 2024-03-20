@@ -1,0 +1,35 @@
+<section class="flex flex-col">
+    <h1 class="text-white m-2 justify-center text-4x1 flex">GIFS APP</h1>
+    <div class="border-t border-gray-400 w-full"></div>
+
+    <section class="flex justify-center">
+        <div class="flex justify-center items-center flex-col">
+            <h2 class="text-white">Search GIF:</h2> 
+            <form [formGroup]="Form" (ngSubmit)="onSearch()" class="flex">
+                <input type="text" formControlName="search" placeholder="search GIF" class="rounded-l-md block w-full border border-white bg-transparent py-2 pl-3 pr-10 text-base/6 text-white ring-4 ring-transparent transition placeholder:text-gray-400 focus:border-white focus:outline-none focus:ring-neutral-950/5">
+                <input type="submit" value="search" class="rounded-r-md bg-blue-500 p-2 text-white font-semibold hover:bg-blue-800 transition-colors">
+        </form>
+    </div>
+    
+    </section>
+    <div *ngIf="searchHistory" class="mr-4 flex flex-col justify-center text-white items-center overflow-y-auto max-h-screen  ">
+        <h3 class="">Search History</h3>
+        <ul class="w-full ">
+            <li *ngFor="let term of searchHistory" (click)="searchFromHistory(term)" class="overflow-hidden relative w-32 p-2 h-12 bg-black text-white border-none rounded-md text-xl font-bold cursor-pointer relative z-10 group m-2">{{ term }}   <span
+                class="absolute w-36 h-32 -top-8 -left-2 bg-sky-200 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-500 duration-1000 origin-right "
+              ></span>
+              <span
+                class="absolute w-36 h-32 -top-8 -left-2 bg-sky-400 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-700 duration-700 origin-right"
+              ></span>
+              <span
+                class="absolute w-36 h-32 -top-8 -left-2 bg-sky-600 rotate-12 transform scale-x-0 group-hover:scale-x-100 transition-transform group-hover:duration-1000 duration-500 origin-right"
+              ></span>
+              <span
+                class="group-hover:opacity-100 group-hover:duration-1000 duration-100 opacity-0 absolute top-2.5 left-6 z-10"
+                >Explore!</span
+              ></li> 
+        </ul>
+    </div>
+
+</section>
+

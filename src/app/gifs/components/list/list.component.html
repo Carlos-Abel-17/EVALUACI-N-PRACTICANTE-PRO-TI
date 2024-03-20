@@ -1,0 +1,19 @@
+<div class="overflow-y-auto max-h-screen">
+  <section class="flex flex-wrap justify-center">
+
+    <div *ngIf="List.length === 0" class="text-gray-400 text-center w-full">
+      <p>No hay gifs disponibles.</p>
+    </div>
+  
+    <div class="flex justify-center w-full p-4 sm:w-1/2 md:w-1/4 lg:w-1/4" *ngFor="let item of List">
+      <div class="transform transition duration-300 hover:scale-110 rounded-lg shadow-lg h-52 w-56 hover:shadow-xl bg-black border border-solid border-blue-800">
+        <div class="bg-gradient-to-br from-rose-100 via-purple-200 to-purple-200 m-2 h-3/6 rounded-lg">
+          <img [src]="item['images']['original']['url']" alt="gif" class="w-full h-32 object-cover">
+        </div>
+        <div class="px-5 pt-2 flex flex-col">
+          <h2 class="text-white font-semibold">{{ item.title.length > 20 ? item.title.substr(0, 20) + '...' : item.title }}</h2>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
